@@ -6,6 +6,7 @@ public interface MyIList<T> {
     void add(T item);
     void delete(T item);
     List<T> getAll();
-    void size();
-    void isEmpty();
+    int size();
+    boolean isEmpty();
+    String display();
 }

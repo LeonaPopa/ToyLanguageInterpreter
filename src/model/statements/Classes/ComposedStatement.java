@@ -1,26 +1,28 @@
 package model.statements.Classes;
 
+import model.exceptions.MyException;
 import model.statements.StatementInterface;
 import model.program.executableStack.MyIStack;
 import model.ProgramState;
 
 public class ComposedStatement implements StatementInterface {
     StatementInterface first;
-    StatementInterface snd;
+    StatementInterface second;
+
     public ComposedStatement(StatementInterface first, StatementInterface snd) {
         this.first = first;
-        this.snd = snd;
+        this.second = snd;
     }
     @Override
-    public ProgramState execute(ProgramState state) throws MyException {
-        MyIStack<StatementInterface> stk = state.getStk();
-        stk.push(snd);
-        stk.push(first);
-        return state;
+    public String toString() {
+        return "(" + first.toString() + " " + second.toString() + ")";
     }
 
     @Override
-    public String toString() {
-        return "(" + first.toString() + ";" + snd.toString() + ")";
+    public ProgramState execute(ProgramState state) throws MyException {
+        MyIStack<StatementInterface> stk = state.getExeStack();
+        stk.push(second);
+        stk.push(first);
+        return state;
     }
 }

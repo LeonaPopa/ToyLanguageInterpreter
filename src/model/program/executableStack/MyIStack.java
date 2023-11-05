@@ -8,5 +8,6 @@ public interface MyIStack<T> {
     Stack<T> getAll();
     int size();
     boolean isEmpty();
+    String display();
 
 }

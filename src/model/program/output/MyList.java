@@ -21,6 +21,27 @@ public class MyList<T> implements MyIList<T> {
     }
 
     @Override
+    public int size() {
+        return list.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return list.isEmpty();
+    }
+
+    @Override
+    public String toString(){
+        return "MyList{" +
+                "list=" + list +
+                '}';
+    }
+    @Override
+    public String display() {
+        return list.toString();
+    }
+
+    @Override
     public void delete(T item) {
         list.remove(item);
     }

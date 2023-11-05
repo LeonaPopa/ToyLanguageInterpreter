@@ -1,4 +1,17 @@
 package model.statements.Classes;
 
-public class NoOperationStatement {
+import model.ProgramState;
+import model.exceptions.MyException;
+import model.statements.StatementInterface;
+
+public class NoOperationStatement implements StatementInterface {
+    @Override
+    public ProgramState execute(ProgramState state) throws MyException {
+        return state;
+    }
+
+    @Override
+    public String toString() {
+        return "no operation";
+    }
 }
