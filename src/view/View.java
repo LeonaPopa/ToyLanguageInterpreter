@@ -63,9 +63,9 @@ public class View {
             int choice = Integer.parseInt(scanner.next());
             StatementInterface program = null;
             if(choice == 1){
-                program = new ComposedStatement(new ComposedStatement(new VariableDeclarationStatement("v",new BoolType()), new VariableDeclarationStatement("x", new BoolType())),
-                        new ComposedStatement(new NoOperationStatement(),
-                                new PrintStatement(new LogicalExpression("||", new VariableExpression("v"), new VariableExpression("x")))));
+                program = new ComposedStatement(new VariableDeclarationStatement("v", new IntType()),
+                        new ComposedStatement(new AssignmentStatement("v", new ValueExpression(new IntValue(2))),
+                                new PrintStatement(new VariableExpression("v"))));
             }
             if(choice == 2){
                 program = new ComposedStatement( new VariableDeclarationStatement("a",new IntType()),
