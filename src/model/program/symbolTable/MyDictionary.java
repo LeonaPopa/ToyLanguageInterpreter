@@ -1,6 +1,8 @@
 package model.program.symbolTable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MyDictionary<K, V> implements MyIDictionary<K, V> {
@@ -38,5 +40,10 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
     @Override
     public void update(K key, V newValue) {
         dictionary.replace(key, newValue);
+    }
+
+    @Override
+    public List<Map.Entry<K, V>> getAll(){
+        return new ArrayList(dictionary.entrySet());
     }
 }

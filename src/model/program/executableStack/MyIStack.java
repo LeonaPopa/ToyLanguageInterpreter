@@ -1,5 +1,6 @@
 package model.program.executableStack;
 
+import java.util.List;
 import java.util.Stack;
 
 public interface MyIStack<T> {
@@ -9,5 +10,5 @@ public interface MyIStack<T> {
     int size();
     boolean isEmpty();
     String display();
-
+    List<T> getInOrderTraversal();
 }

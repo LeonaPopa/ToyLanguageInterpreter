@@ -1,6 +1,8 @@
 package model.program.executableStack;
 
+import java.util.ArrayList;
 import java.util.EmptyStackException;
+import java.util.List;
 import java.util.Stack;
 
 public class MyStack<T> implements MyIStack<T> {
@@ -48,5 +50,17 @@ public class MyStack<T> implements MyIStack<T> {
     @Override
     public String display() {
         return stack.toString();
+    }
+
+    public List<T> getInOrderTraversal() {
+        return inOrderTraversal(stack);
+    }
+
+    private List<T> inOrderTraversal(Stack<T> stack) {
+        List<T> result = new ArrayList<>();
+        for (T element : stack) {
+            result.add(element);
+        }
+        return result;
     }
 }

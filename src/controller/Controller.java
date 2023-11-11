@@ -14,10 +14,12 @@ public class Controller {
         displayFlag = true;
     }
     public boolean isDisplayFlag() {
+
         return displayFlag;
     }
 
     public void setDisplayFlag(boolean displayFlag) {
+
         this.displayFlag = displayFlag;
     }
 
@@ -31,11 +33,11 @@ public class Controller {
 
     public  void allStep() throws MyException {
         ProgramState prg = repo.getCrtPrg();
-        System.out.println(prg);
-        while(!prg.getExeStack().isEmpty())
-        {
+        repo.logProgramStateExecution(); // Log initial program state
+        while (!prg.getExeStack().isEmpty()) {
             oneStep(prg);
-            if(displayFlag)
+            repo.logProgramStateExecution(); // Log program state after each step
+            if (displayFlag)
                 System.out.println(prg);
         }
         System.out.println(prg);
