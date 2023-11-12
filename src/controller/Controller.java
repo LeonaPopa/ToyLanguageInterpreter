@@ -6,40 +6,53 @@ import model.program.executableStack.MyIStack;
 import model.statements.StatementInterface;
 import repository.IRepository;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Controller {
     public IRepository repo;
     boolean displayFlag;
+
     public Controller(IRepository repo) {
         this.repo = repo;
         displayFlag = true;
     }
-    public boolean isDisplayFlag() {
 
+    public boolean isDisplayFlag() {
         return displayFlag;
     }
 
-    public void setDisplayFlag(boolean displayFlag) {
+    public ProgramState getProgramatIndex(int index) throws MyException{
+        return repo.getPrgAtIndex(index);
+    }
 
+    public void setDisplayFlag(boolean displayFlag) {
         this.displayFlag = displayFlag;
     }
+    public void addProgram(ProgramState program) { repo.addProgram(program); }
 
     public ProgramState oneStep(ProgramState state) throws MyException {
         MyIStack<StatementInterface> stk = state.getExeStack();
-        if(stk.isEmpty())
+        if (stk.isEmpty())
             throw new MyException("prgstate stack is empty");
         StatementInterface crtStmt = stk.pop();
         return crtStmt.execute(state);
     }
 
-    public  void allStep() throws MyException {
-        ProgramState prg = repo.getCrtPrg();
-        repo.logProgramStateExecution(); // Log initial program state
+    public void allStep(ProgramState prg) throws MyException, IOException {
         while (!prg.getExeStack().isEmpty()) {
             oneStep(prg);
-            repo.logProgramStateExecution(); // Log program state after each step
-            if (displayFlag)
-                System.out.println(prg);
+            repo.logProgramStateExecution(prg); // Log program state after each step
         }
-        System.out.println(prg);
+    }
+
+    private void saveToLogFile(ProgramState programState) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("log.txt", true))) {
+            writer.write(programState.toString());
+            writer.newLine();
+        } catch (IOException e) {
+            System.err.println("Error writing to log file: " + e.getMessage());
+        }
     }
 }

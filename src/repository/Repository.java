@@ -37,20 +37,18 @@ public class Repository implements IRepository{
     }
 
     @Override
-    public void logProgramStateExecution() throws MyException{
-        try (PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)))) {
-            logFile.println("ExeStack:");
-            logFile.println(printStack(getCrtPrg().getExeStack()));
-            logFile.println("SymTable:");
-            logFile.println(printSymTable(getCrtPrg().getSymTable()));
-            logFile.println("Out:");
-            logFile.println(printList(getCrtPrg().getOut()));
-            // Add file table printing if needed
+    public void logProgramStateExecution(ProgramState state) throws MyException, IOException{
+        PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
+        logFile.write(state.toString());
+        logFile.close();
+    }
 
-        } catch (IOException e) {
-            throw new MyException("Error writing to the log file: " + e.getMessage());
-        }
-    };
+    @Override
+    public ProgramState getPrgAtIndex(int index) throws MyException {
+        return states.get(index);
+    }
+
+    ;
     private String printStack(MyIStack<StatementInterface> stack) {
         StringBuilder stackString = new StringBuilder();
         // Use left-root-right binary tree traversal

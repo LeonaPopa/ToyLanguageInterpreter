@@ -1,11 +1,10 @@
 package model.program.symbolTable;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import model.exceptions.MyException;
 
-public class MyDictionary<K, V> implements MyIDictionary<K, V> {
+import java.util.*;
+
+public class MyDictionary<K, V> implements MyIDictionary<K,V> {
     private Map<K, V> dictionary;
 
     public MyDictionary() {
@@ -46,4 +45,15 @@ public class MyDictionary<K, V> implements MyIDictionary<K, V> {
     public List<Map.Entry<K, V>> getAll(){
         return new ArrayList(dictionary.entrySet());
     }
+
+    @Override
+    public V remove(Object key) throws MyException {
+        try {
+            return dictionary.remove(key);
+        }
+        catch (Exception ex){
+            throw new MyException(ex.getMessage());
+        }
+    }
+    public Collection<V> values() { return dictionary.values(); }
 }

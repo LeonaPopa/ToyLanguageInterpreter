@@ -16,4 +16,12 @@ public class IntValue implements ValueInterface{
     public TypeInterface getType() {
         return new IntType();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof IntValue)
+            return true;
+        return false;
+    }
+
 }

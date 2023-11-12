@@ -1,5 +1,8 @@
 package model.types;
 
+import model.values.IntValue;
+import model.values.ValueInterface;
+
 public class IntType implements TypeInterface{
     @Override
     public boolean equals(Object another){
@@ -11,6 +14,11 @@ public class IntType implements TypeInterface{
     @Override
     public String toString() {
         return "int";
+    }
+
+    @Override
+    public ValueInterface defaultValue() {
+        return new IntValue(0);
     }
 }
 

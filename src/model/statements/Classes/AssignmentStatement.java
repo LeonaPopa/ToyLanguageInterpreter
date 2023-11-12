@@ -2,6 +2,7 @@ package model.statements.Classes;
 
 import model.exceptions.MyException;
 import model.expressions.Expressioninterface;
+import model.program.executableStack.MyIStack;
 import model.program.symbolTable.MyIDictionary;
 import model.statements.StatementInterface;
 import model.ProgramState;
@@ -24,7 +25,6 @@ public class AssignmentStatement implements StatementInterface {
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
         MyIDictionary<String, ValueInterface> symTbl = state.getSymTable();
-
         if(symTbl.isDefined(id)){
             ValueInterface val = exp.eval(symTbl);
             TypeInterface typId = symTbl.getElementByKey(id).getType();

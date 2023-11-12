@@ -22,20 +22,18 @@ public class VariableDeclarationStatement implements StatementInterface {
     }
 
     public String toString(){
+
         return typ.toString() + " " + name + ";";
     }
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
         MyIStack<StatementInterface> stk = state.getExeStack();
-        MyIDictionary<String, ValueInterface> symTbl = state.getSymTable();
-        if(symTbl.isDefined(name))
+        MyIDictionary<String, ValueInterface> symTable = state.getSymTable();
+        if (symTable.isDefined(name)) {
             throw new MyException("Variable is already declared");
-        else{
-            if(typ.equals(new IntType()))
-                symTbl.add(name, new IntValue(0));
-            if(typ.equals(new BoolType()))
-                symTbl.add(name, new BoolValue(false));
+        } else {
+            symTable.add(name, typ.defaultValue());
         }
         return state;
     }

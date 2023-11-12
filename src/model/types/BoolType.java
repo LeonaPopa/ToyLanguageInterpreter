@@ -1,5 +1,8 @@
 package model.types;
 
+import model.values.BoolValue;
+import model.values.ValueInterface;
+
 public class BoolType implements TypeInterface{
     @Override
     public boolean equals(Object obj) {
@@ -12,5 +15,10 @@ public class BoolType implements TypeInterface{
     @Override
     public String toString() {
         return "bool";
+    }
+
+    @Override
+    public ValueInterface defaultValue() {
+        return new BoolValue(false);
     }
 }

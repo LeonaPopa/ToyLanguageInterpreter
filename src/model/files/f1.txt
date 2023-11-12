@@ -1,0 +1,80 @@
+EXECUTION STACK:
+MyStack{stack=[(int b; (a=2 (b=3 (IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b)))))), int a;]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[(int b; (a=2 (b=3 (IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b))))))]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=0}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[(a=2 (b=3 (IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b))))), int b;]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=0}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[(a=2 (b=3 (IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b)))))]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=0, b=0}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[(b=3 (IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b)))), a=2]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=0, b=0}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[(b=3 (IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b))))]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=2, b=0}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[(IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b))), b=3]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=2, b=0}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[(IF(model.expressions.classes.RelationalExpression@6df97b55)THEN(print(a))ELSE(print(b)))]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=2, b=3}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[print(a)]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=2, b=3}}
+OUTPUT:
+MyList{list=[]}
+FILE TABLE:
+MyDictionary{dictionary={}}
+EXECUTION STACK:
+MyStack{stack=[]}
+SYMBOLS TABLE:
+MyDictionary{dictionary={a=2, b=3}}
+OUTPUT:
+MyList{list=[2]}
+FILE TABLE:
+MyDictionary{dictionary={}}

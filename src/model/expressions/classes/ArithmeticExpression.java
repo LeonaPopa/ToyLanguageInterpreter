@@ -19,6 +19,7 @@ public class ArithmeticExpression implements Expressioninterface {
     }
     @Override
     public String toString() {
+
         return String.valueOf(e1) + String.valueOf(op) + String.valueOf(e2);
     }
 

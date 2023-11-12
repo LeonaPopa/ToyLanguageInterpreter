@@ -88,16 +88,16 @@ public class View {
             MyIStack<StatementInterface> stk = new MyStack<StatementInterface>();
             MyIDictionary<String, ValueInterface> symTbl = new MyDictionary<String, ValueInterface>();
             MyIList<ValueInterface> out = new MyList<ValueInterface>();
-            ProgramState state = new ProgramState(stk, symTbl, out, program);
-            IRepository repo = new Repository();
-            repo.addProgram(state);
-            Controller ctr = new Controller(repo);
-            View ui = new View(ctr);
-            try {
-                ui.getCtrl().allStep();
-            } catch (MyException e) {
-                System.out.println(e.getMessage());
-            }
+            //ProgramState state = new ProgramState(stk, symTbl, out, program);
+            //IRepository repo = new Repository();
+            //repo.addProgram(state);
+            //Controller ctr = new Controller(repo);
+            //View ui = new View(ctr);
+            //try {
+                //ui.getCtrl().allStep();
+            //} catch (MyException e) {
+                //System.out.println(e.getMessage());
+            //}
         }
 
     }
