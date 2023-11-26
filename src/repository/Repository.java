@@ -40,6 +40,7 @@ public class Repository implements IRepository{
     public void logProgramStateExecution(ProgramState state) throws MyException, IOException{
         PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
         logFile.write(state.toString());
+        logFile.write("\n");
         logFile.close();
     }
 
@@ -49,7 +50,7 @@ public class Repository implements IRepository{
     }
 
     ;
-    private String printStack(MyIStack<StatementInterface> stack) {
+    /*private String printStack(MyIStack<StatementInterface> stack) {
         StringBuilder stackString = new StringBuilder();
         // Use left-root-right binary tree traversal
         // Assuming you have a method getInOrderTraversal in your stack implementation
@@ -72,5 +73,7 @@ public class Repository implements IRepository{
         }
         return listString.toString();
     }
+
+    */
 
 }

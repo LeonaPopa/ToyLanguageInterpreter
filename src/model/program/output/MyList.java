@@ -32,9 +32,12 @@ public class MyList<T> implements MyIList<T> {
 
     @Override
     public String toString(){
-        return "MyList{" +
-                "list=" + list +
-                '}';
+        StringBuilder stringList = new StringBuilder();
+        for( T elem : list)
+        {
+            stringList.append(elem.toString()).append("\n");
+        }
+        return stringList.toString();
     }
     @Override
     public String display() {

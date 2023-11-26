@@ -12,9 +12,11 @@ public class MyDictionary<K, V> implements MyIDictionary<K,V> {
     }
     @Override
     public String toString() {
-        return "MyDictionary{" +
-                "dictionary=" + dictionary +
-                '}';
+        StringBuilder dictString = new StringBuilder();
+        for(K elem: dictionary.keySet()){
+            dictString.append(elem.toString()).append(" -> ").append(dictionary.get(elem).toString());
+        }
+        return dictString.toString();
     }
     @Override
     public void add(K key, V value) {

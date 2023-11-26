@@ -1,0 +1,195 @@
+EXECUTION STACK:
+(string varf; (varf=C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt (openRFile(varf) (int varc; (readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf)))))))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+
+EXECUTION STACK:
+string varf;
+(varf=C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt (openRFile(varf) (int varc; (readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf))))))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+
+EXECUTION STACK:
+(varf=C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt (openRFile(varf) (int varc; (readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf))))))))
+
+SYMBOLS TABLE:
+varf -> 
+OUTPUT:
+
+FILE TABLE:
+
+
+EXECUTION STACK:
+varf=C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt
+(openRFile(varf) (int varc; (readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf)))))))
+
+SYMBOLS TABLE:
+varf -> 
+OUTPUT:
+
+FILE TABLE:
+
+
+EXECUTION STACK:
+(openRFile(varf) (int varc; (readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf)))))))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt
+OUTPUT:
+
+FILE TABLE:
+
+
+EXECUTION STACK:
+openRFile(varf)
+(int varc; (readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf))))))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt
+OUTPUT:
+
+FILE TABLE:
+
+
+EXECUTION STACK:
+(int varc; (readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf))))))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt
+OUTPUT:
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+int varc;
+(readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf)))))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt
+OUTPUT:
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+(readFile(varf, varc) (print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf)))))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 0
+OUTPUT:
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+readFile(varf, varc)
+(print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf))))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 0
+OUTPUT:
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+(print(varc) (readFile(varf, varc) (print(varc) closeRFile(varf))))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 15
+OUTPUT:
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+print(varc)
+(readFile(varf, varc) (print(varc) closeRFile(varf)))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 15
+OUTPUT:
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+(readFile(varf, varc) (print(varc) closeRFile(varf)))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 15
+OUTPUT:
+15
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+readFile(varf, varc)
+(print(varc) closeRFile(varf))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 15
+OUTPUT:
+15
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+(print(varc) closeRFile(varf))
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 50
+OUTPUT:
+15
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+print(varc)
+closeRFile(varf)
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 50
+OUTPUT:
+15
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+closeRFile(varf)
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 50
+OUTPUT:
+15
+50
+
+FILE TABLE:
+C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txt -> java.io.BufferedReader@6ddf90b0
+
+EXECUTION STACK:
+
+SYMBOLS TABLE:
+varf -> C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/pm.txtvarc -> 50
+OUTPUT:
+15
+50
+
+FILE TABLE:
+
+

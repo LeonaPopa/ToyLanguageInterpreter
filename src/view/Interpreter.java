@@ -35,12 +35,9 @@ public class Interpreter {
         MyIDictionary<StringValue, BufferedReader> fileTbl = new MyDictionary<StringValue, BufferedReader>() {
         };
 
-        StatementInterface ex1 = new ComposedStatement(new VariableDeclarationStatement("a", new IntType()),
-                new ComposedStatement(new VariableDeclarationStatement("b", new IntType()),
-                        new ComposedStatement(new AssignmentStatement("a", new ValueExpression(new IntValue(2))),
-                                new ComposedStatement(new AssignmentStatement("b", new ValueExpression(new IntValue(3))),
-                                        new IfStatement(new RelationalExpression(new VariableExpression("a"), new VariableExpression("b"), "<"),
-                                                new PrintStatement(new VariableExpression("a")), new PrintStatement(new VariableExpression("b")))))));
+        StatementInterface ex1 = new ComposedStatement(new VariableDeclarationStatement("v", new IntType()),
+                new ComposedStatement(new AssignmentStatement("v", new ValueExpression(new IntValue(2))), new PrintStatement(new
+                        VariableExpression("v"))));
         ProgramState prg1 = new ProgramState(stk, symTbl, out, fileTbl, ex1);
         IRepository repo1 = new Repository("C:/Users/Leona/OneDrive/Documente/GitHub/ToyLanguageInterpreter/src/model/files/f1.txt");
         Controller ctr1 = new Controller(repo1);

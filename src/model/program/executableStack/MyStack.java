@@ -42,9 +42,14 @@ public class MyStack<T> implements MyIStack<T> {
 
     @Override
     public String toString() {
-        return "MyStack{" +
-                "stack=" + stack +
-                '}';
+        StringBuilder stringStack = new StringBuilder();
+        List<T> stackList = new ArrayList<>(stack);
+        for(int i = stackList.size()-1; i>=0; i--)
+        {
+            String currentElem = stackList.get(i).toString();
+            stringStack.append(currentElem).append("\n");
+        }
+        return stringStack.toString();
     }
 
     @Override

@@ -41,9 +41,11 @@ public class Controller {
     }
 
     public void allStep(ProgramState prg) throws MyException, IOException {
+        repo.logProgramStateExecution(prg);
         while (!prg.getExeStack().isEmpty()) {
             oneStep(prg);
-            repo.logProgramStateExecution(prg); // Log program state after each step
+            repo.logProgramStateExecution(prg);
+            // Log program state after each step
         }
     }
 
