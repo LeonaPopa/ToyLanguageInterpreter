@@ -1,8 +1,9 @@
 package model.statements.Classes;
 import model.ProgramState;
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
 import model.program.executableStack.MyIStack;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.statements.StatementInterface;
 import model.values.StringValue;
@@ -13,9 +14,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class openRFile implements StatementInterface {
-    private Expressioninterface expression;
+    private ExpressionInterface expression;
 
-    public openRFile(Expressioninterface expression) {
+    public openRFile(ExpressionInterface expression) {
         this.expression = expression;
     }
 
@@ -24,8 +25,8 @@ public class openRFile implements StatementInterface {
         MyIStack<StatementInterface> exeStack = state.getExeStack();
         MyIDictionary<String, ValueInterface> symbolTable = state.getSymTable();
         MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
-
-        ValueInterface value = expression.eval(symbolTable);
+        MyIDictionary2<ValueInterface> heap = state.getHeap();
+        ValueInterface value = expression.eval(symbolTable,heap);
         if (!(value instanceof StringValue)) {
             throw new MyException("Expression result is not a string.");
         }

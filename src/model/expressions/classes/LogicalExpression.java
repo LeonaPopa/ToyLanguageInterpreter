@@ -2,18 +2,19 @@ package model.expressions.classes;
 
 import com.sun.jdi.Value;
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.types.BoolType;
 import model.values.BoolValue;
 import model.values.ValueInterface;
 
-public class LogicalExpression implements Expressioninterface {
-    Expressioninterface e1;
-    Expressioninterface e2;
+public class LogicalExpression implements ExpressionInterface {
+    ExpressionInterface e1;
+    ExpressionInterface e2;
     String op;
 
-    public LogicalExpression(String op, Expressioninterface e1, Expressioninterface e2) {
+    public LogicalExpression(String op, ExpressionInterface e1, ExpressionInterface e2) {
         this.e1 = e1;
         this.e2 = e2;
         this.op = op;
@@ -24,10 +25,10 @@ public class LogicalExpression implements Expressioninterface {
     }
 
     @Override
-    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl) throws MyException {
-        ValueInterface nr1 = e1.eval(tbl);
+    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl, MyIDictionary2<ValueInterface> heap) throws MyException {
+        ValueInterface nr1 = e1.eval(tbl, heap);
         if (nr1.getType().equals(new BoolType())) {
-            ValueInterface nr2 = e2.eval(tbl);
+            ValueInterface nr2 = e2.eval(tbl, heap);
             if(nr2.getType().equals(new BoolType())){
                 BoolValue v1 = (BoolValue) nr1;
                 BoolValue v2 = (BoolValue) nr2;

@@ -1,34 +1,34 @@
 package model.expressions.classes;
 
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.types.IntType;
 import model.values.IntValue;
 import model.values.ValueInterface;
 
-public class ArithmeticExpression implements Expressioninterface {
+public class ArithmeticExpression implements ExpressionInterface {
 
-    Expressioninterface e1;
-    Expressioninterface e2;
+    ExpressionInterface e1;
+    ExpressionInterface e2;
     char op;
-    public ArithmeticExpression(char op, Expressioninterface e1, Expressioninterface e2) {
+    public ArithmeticExpression(char op, ExpressionInterface e1, ExpressionInterface e2) {
         this.e1 = e1;
         this.e2 = e2;
         this.op = op;
     }
     @Override
     public String toString() {
-
         return String.valueOf(e1) + String.valueOf(op) + String.valueOf(e2);
     }
 
     @Override
-    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl) throws MyException {
+    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl, MyIDictionary2<ValueInterface> heap) throws MyException {
         ValueInterface v1, v2;
-        v1 = e1.eval(tbl);
+        v1 = e1.eval(tbl, heap);
         if (v1.getType().equals(new IntType())) {
-            v2 = e2.eval(tbl);
+            v2 = e2.eval(tbl, heap);
             if (v2.getType().equals(new IntType())) {
                 IntValue i1 = (IntValue) v1;
                 IntValue i2 = (IntValue) v2;

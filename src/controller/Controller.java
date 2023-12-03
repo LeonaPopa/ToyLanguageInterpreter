@@ -3,34 +3,58 @@ package controller;
 import model.ProgramState;
 import model.exceptions.MyException;
 import model.program.executableStack.MyIStack;
+import model.program.heap.MyIDictionary2;
+import model.program.symbolTable.MyIDictionary;
 import model.statements.StatementInterface;
+import model.values.RefValue;
+import model.values.ValueInterface;
 import repository.IRepository;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Controller {
     public IRepository repo;
-    boolean displayFlag;
-
     public Controller(IRepository repo) {
         this.repo = repo;
-        displayFlag = true;
     }
-
-    public boolean isDisplayFlag() {
-        return displayFlag;
-    }
-
+    public void addProgram(ProgramState program) { repo.addProgram(program); }
     public ProgramState getProgramatIndex(int index) throws MyException{
         return repo.getPrgAtIndex(index);
     }
+    private Map<Integer, ValueInterface> garbageCollector(ProgramState program){
+        MyIDictionary<String, ValueInterface> sym = program.getSymTable();
+        MyIDictionary2<ValueInterface> heap = program.getHeap();
+        Map<Integer, ValueInterface> referenced = new HashMap<Integer, ValueInterface>();
+        List<Integer> addresses = new ArrayList<Integer>();
+        addresses = getAddressFromSymTable(sym.values());
 
-    public void setDisplayFlag(boolean displayFlag) {
-        this.displayFlag = displayFlag;
+        for (Map.Entry<Integer, ValueInterface> e: heap.getAll()){
+            if (addresses.contains(e.getKey()))
+                referenced.put(e.getKey(), e.getValue());
+            else{
+                int elemAddress = e.getKey();
+                for (Map.Entry<Integer, ValueInterface> searchAddress: heap.getAll()){
+                    ValueInterface val = searchAddress.getValue();
+                    if (val instanceof RefValue){
+                        RefValue ref = (RefValue)val;
+                        if (ref.getAddr() == elemAddress)
+                            referenced.put(elemAddress, e.getValue());
+                    }
+                }
+            }
+        }
+
+        return referenced;
     }
-    public void addProgram(ProgramState program) { repo.addProgram(program); }
+
+    private List<Integer> getAddressFromSymTable(Collection<ValueInterface> symTable){
+        return symTable.stream().filter(v->v instanceof RefValue).map(v-> { RefValue v1 = (RefValue)v; return v1.getAddr(); }).collect(Collectors.toList());
+    }
+
 
     public ProgramState oneStep(ProgramState state) throws MyException {
         MyIStack<StatementInterface> stk = state.getExeStack();
@@ -44,6 +68,7 @@ public class Controller {
         repo.logProgramStateExecution(prg);
         while (!prg.getExeStack().isEmpty()) {
             oneStep(prg);
+            prg.getHeap().setContent(garbageCollector(prg));
             repo.logProgramStateExecution(prg);
             // Log program state after each step
         }

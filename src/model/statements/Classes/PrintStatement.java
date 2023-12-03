@@ -2,18 +2,18 @@ package model.statements.Classes;
 
 import model.ProgramState;
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
 import model.statements.StatementInterface;
 import model.values.ValueInterface;
 
 public class PrintStatement implements StatementInterface {
-    Expressioninterface exp;
+    ExpressionInterface exp;
 
-    public PrintStatement(Expressioninterface exp) {
+    public PrintStatement(ExpressionInterface exp) {
         this.exp = exp;
     }
 
-    public Expressioninterface getExp() {
+    public ExpressionInterface getExp() {
         return exp;
     }
 
@@ -23,7 +23,7 @@ public class PrintStatement implements StatementInterface {
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        ValueInterface val = exp.eval(state.getSymTable());
+        ValueInterface val = exp.eval(state.getSymTable(), state.getHeap());
         state.getOut().add(val);
         return state;
     }

@@ -1,8 +1,9 @@
 package model.statements.Classes;
 
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
 import model.program.executableStack.MyIStack;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.statements.StatementInterface;
 import model.ProgramState;
@@ -10,11 +11,11 @@ import model.types.BoolType;
 import model.values.ValueInterface;
 
 public class IfStatement implements StatementInterface {
-    Expressioninterface exp;
+    ExpressionInterface exp;
     StatementInterface thenS;
     StatementInterface elseS;
 
-    public IfStatement(Expressioninterface exp, StatementInterface thenS, StatementInterface elseS) {
+    public IfStatement(ExpressionInterface exp, StatementInterface thenS, StatementInterface elseS) {
         this.exp = exp;
         this.thenS = thenS;
         this.elseS = elseS;
@@ -27,7 +28,8 @@ public class IfStatement implements StatementInterface {
     public ProgramState execute(ProgramState state) throws MyException {
         MyIDictionary<String, ValueInterface> symTbl = state.getSymTable();
         MyIStack<StatementInterface> stk = state.getExeStack();
-        ValueInterface cond = exp.eval(symTbl);
+        MyIDictionary2<ValueInterface> heap = state.getHeap();
+        ValueInterface cond = exp.eval(symTbl, heap);
 
         if(!cond.getType().equals(new BoolType()))
             throw new MyException("Conditional expression is not a boolean");

@@ -1,11 +1,12 @@
 package model.expressions.classes;
 
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.values.ValueInterface;
 
-public class ValueExpression implements Expressioninterface {
+public class ValueExpression implements ExpressionInterface {
     ValueInterface e;
     public ValueExpression(ValueInterface e) {
         this.e = e;
@@ -17,7 +18,7 @@ public class ValueExpression implements Expressioninterface {
     }
 
     @Override
-    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl) throws MyException {
+    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl, MyIDictionary2<ValueInterface> heap) throws MyException {
         return e;
     }
 }

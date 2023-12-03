@@ -1,29 +1,30 @@
 package model.expressions.classes;
 
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.types.IntType;
 import model.values.BoolValue;
 import model.values.IntValue;
 import model.values.ValueInterface;
 
-public class RelationalExpression implements Expressioninterface {
-    Expressioninterface e1;
-    Expressioninterface e2;
+public class RelationalExpression implements ExpressionInterface {
+    ExpressionInterface e1;
+    ExpressionInterface e2;
     String op;
 
-    public RelationalExpression(Expressioninterface e1, Expressioninterface e2, String op) {
+    public RelationalExpression(ExpressionInterface e1, ExpressionInterface e2, String op) {
         this.e1 = e1; this.e2 = e2; this.op = op; }
 
 
     @Override
-    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl) throws MyException {
+    public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl, MyIDictionary2<ValueInterface> heap) throws MyException {
         ValueInterface v1, v2;
-        v1 = e1.eval(tbl);
+        v1 = e1.eval(tbl, heap);
         if(v1.getType().equals(new IntType()))
         {
-            v2 = e2.eval(tbl);
+            v2 = e2.eval(tbl, heap);
             if(v1.getType().equals(new IntType())){
                 IntValue i1 = (IntValue) v1;
                 IntValue i2 = (IntValue) v2;

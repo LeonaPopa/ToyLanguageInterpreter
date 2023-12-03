@@ -1,7 +1,8 @@
 package model.statements.Classes;
 import model.ProgramState;
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.statements.StatementInterface;
 import model.types.StringType;
@@ -13,10 +14,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class ReadFile implements StatementInterface {
-    private Expressioninterface expression;
+    private ExpressionInterface expression;
     private String variableName;
 
-    public ReadFile(Expressioninterface expression, String variableName) {
+    public ReadFile(ExpressionInterface expression, String variableName) {
         this.expression = expression;
         this.variableName = variableName;
     }
@@ -26,11 +27,11 @@ public class ReadFile implements StatementInterface {
         MyIDictionary<String, ValueInterface> symbolTable = state.getSymTable();
         MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
         ValueInterface value = symbolTable.getElementByKey(variableName);
-
+        MyIDictionary2<ValueInterface> heap = state.getHeap();
         if (value == null)
             throw new MyException("Variable " + variableName + " was not declared!");
 
-        ValueInterface expressionValue = expression.eval(symbolTable);
+        ValueInterface expressionValue = expression.eval(symbolTable, heap);
         if (expressionValue.getType().equals(new StringType())){
             StringValue file = (StringValue)expressionValue;
             if (fileTable.isDefined(file)){

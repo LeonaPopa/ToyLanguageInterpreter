@@ -1,7 +1,8 @@
 package model.statements.Classes;
 import model.ProgramState;
 import model.exceptions.MyException;
-import model.expressions.Expressioninterface;
+import model.expressions.ExpressionInterface;
+import model.program.heap.MyIDictionary2;
 import model.program.symbolTable.MyIDictionary;
 import model.statements.StatementInterface;
 import model.types.StringType;
@@ -12,19 +13,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public class CloseRFile implements StatementInterface {
-    private Expressioninterface expression;
+    private ExpressionInterface expression;
 
-    public CloseRFile(Expressioninterface expression) {
+    public CloseRFile(ExpressionInterface expression) {
         this.expression = expression;
     }
 
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        MyIDictionary<String, ValueInterface> symbolTable = state.getSymTable();
+        MyIDictionary<String, ValueInterface> symTable = state.getSymTable();
+        MyIDictionary2<ValueInterface> heap = state.getHeap();
         MyIDictionary<StringValue, BufferedReader> fileTable = state.getFileTable();
-
-        ValueInterface expValue = expression.eval(symbolTable);
-
+        ValueInterface expValue = expression.eval(symTable, heap);
         if (expValue.getType().equals(new StringType())){
             StringValue file = (StringValue)expValue;
             if (fileTable.isDefined(file)){
