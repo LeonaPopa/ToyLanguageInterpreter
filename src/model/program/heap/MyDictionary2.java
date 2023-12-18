@@ -6,16 +6,23 @@ import java.util.*;
 public class MyDictionary2<V> implements MyIDictionary2<V>{
     private Map<Integer, V> dictionary;
     Integer nextFree;
-    public void MyDictionary() {
+    public MyDictionary2() {
         dictionary = new HashMap<Integer,V>();
         nextFree = 1;
+    }
+    public void setHeap(Map<Integer, V> heap) {
+        this.dictionary = heap;
+    }
+    public Map<Integer, V> getHeap() {
+        return dictionary;
     }
     @Override
     public String toString() {
         StringBuilder dictString = new StringBuilder();
         for(Integer elem: dictionary.keySet()){
-            dictString.append(elem.toString()).append(" -> ").append(dictionary.get(elem).toString());
+            dictString.append(elem.toString()).append(" -> ").append(dictionary.get(elem).toString()).append("\n");
         }
+        System.out.println(dictString);
         return dictString.toString();
     }
     @Override

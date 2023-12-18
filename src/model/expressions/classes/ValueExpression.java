@@ -21,4 +21,9 @@ public class ValueExpression implements ExpressionInterface {
     public ValueInterface eval(MyIDictionary<String, ValueInterface> tbl, MyIDictionary2<ValueInterface> heap) throws MyException {
         return e;
     }
+
+    @Override
+    public ExpressionInterface deepCopy() {
+        return new ValueExpression(e.deepCopy());
+    }
 }

@@ -9,7 +9,6 @@ import model.values.IntValue;
 import model.values.ValueInterface;
 
 public class ArithmeticExpression implements ExpressionInterface {
-
     ExpressionInterface e1;
     ExpressionInterface e2;
     char op;
@@ -46,5 +45,10 @@ public class ArithmeticExpression implements ExpressionInterface {
         } else
             throw new MyException("first operand is not an integer");
         throw new MyException("invalid evaluation");
+    }
+
+    @Override
+    public ExpressionInterface deepCopy() {
+        return new ArithmeticExpression(op, e1.deepCopy(), e2.deepCopy());
     }
 }

@@ -1,0 +1,385 @@
+EXECUTION STACK:
+(int v; (v=4 (while (v>0) do (print(v) v=v-1) print(v))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+int v;
+(v=4 (while (v>0) do (print(v) v=v-1) print(v)))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(v=4 (while (v>0) do (print(v) v=v-1) print(v)))
+
+SYMBOLS TABLE:
+v -> 0
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+v=4
+(while (v>0) do (print(v) v=v-1) print(v))
+
+SYMBOLS TABLE:
+v -> 0
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(while (v>0) do (print(v) v=v-1) print(v))
+
+SYMBOLS TABLE:
+v -> 4
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 4
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(print(v) v=v-1)
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 4
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+print(v)
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 4
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 4
+
+OUTPUT:
+4
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 3
+
+OUTPUT:
+4
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(print(v) v=v-1)
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 3
+
+OUTPUT:
+4
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+print(v)
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 3
+
+OUTPUT:
+4
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 3
+
+OUTPUT:
+4
+3
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 2
+
+OUTPUT:
+4
+3
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(print(v) v=v-1)
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 2
+
+OUTPUT:
+4
+3
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+print(v)
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 2
+
+OUTPUT:
+4
+3
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 2
+
+OUTPUT:
+4
+3
+2
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 1
+
+OUTPUT:
+4
+3
+2
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(print(v) v=v-1)
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 1
+
+OUTPUT:
+4
+3
+2
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+print(v)
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 1
+
+OUTPUT:
+4
+3
+2
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+v=v-1
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 1
+
+OUTPUT:
+4
+3
+2
+1
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+while (v>0) do (print(v) v=v-1)
+print(v)
+
+SYMBOLS TABLE:
+v -> 0
+
+OUTPUT:
+4
+3
+2
+1
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+print(v)
+
+SYMBOLS TABLE:
+v -> 0
+
+OUTPUT:
+4
+3
+2
+1
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+
+SYMBOLS TABLE:
+v -> 0
+
+OUTPUT:
+4
+3
+2
+1
+0
+
+FILE TABLE:
+
+HEAP:
+
+

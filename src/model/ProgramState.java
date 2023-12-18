@@ -1,5 +1,6 @@
 package model;
 
+import model.exceptions.MyException;
 import model.program.executableStack.MyIStack;
 import model.program.heap.MyIDictionary2;
 import model.program.output.MyIList;
@@ -19,16 +20,26 @@ public class ProgramState {
     MyIDictionary2<ValueInterface> heap;
     StatementInterface originalProgram;
 
+    int id = 1;
+    private static int nextFree = 1;
+    public static synchronized int getNextFree(){
+        nextFree++;
+        return nextFree - 1;
+    }
+    public int getId(){
+        return id;
+    }
     public ProgramState(MyIStack<StatementInterface> exeStack,
                         MyIDictionary<String, ValueInterface> symTable,
                         MyIList<ValueInterface> out, MyIDictionary<StringValue, BufferedReader> files, MyIDictionary2<ValueInterface> heap,StatementInterface originalProgram) {
         this.exeStack = exeStack;
         this.symTable = symTable;
         this.out = out;
-        this.originalProgram = originalProgram;
+        this.originalProgram = originalProgram.deepCopy();
         this.fileTable = files;
         this.heap = heap;
-        exeStack.push(originalProgram);
+        this.id = getNextFree();
+        exeStack.push(this.originalProgram);
     }
     public String toString(){
         return "EXECUTION STACK:\n" + exeStack.toString()  + "\nSYMBOLS TABLE:\n" + symTable.toString() +
@@ -68,5 +79,13 @@ public class ProgramState {
     public StatementInterface deleteStatement() throws Exception{
         StatementInterface st = exeStack.pop();
         return st;
+    }
+    public Boolean isNotCompleted(){
+        return !exeStack.isEmpty();
+    }
+    public ProgramState oneStep() throws MyException {
+        if(exeStack.isEmpty()) throw new MyException("prgstate stack is empty");
+        StatementInterface crtStmt = exeStack.pop();
+        return crtStmt.execute(this);
     }
 }

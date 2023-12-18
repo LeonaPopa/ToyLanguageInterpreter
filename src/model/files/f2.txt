@@ -1,0 +1,124 @@
+EXECUTION STACK:
+(int a; (int b; (a=2+3*5 (b=a+1 print(b)))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+int a;
+(int b; (a=2+3*5 (b=a+1 print(b))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(int b; (a=2+3*5 (b=a+1 print(b))))
+
+SYMBOLS TABLE:
+a -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+int b;
+(a=2+3*5 (b=a+1 print(b)))
+
+SYMBOLS TABLE:
+a -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(a=2+3*5 (b=a+1 print(b)))
+
+SYMBOLS TABLE:
+a -> 0b -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+a=2+3*5
+(b=a+1 print(b))
+
+SYMBOLS TABLE:
+a -> 0b -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(b=a+1 print(b))
+
+SYMBOLS TABLE:
+a -> 17b -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+b=a+1
+print(b)
+
+SYMBOLS TABLE:
+a -> 17b -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+print(b)
+
+SYMBOLS TABLE:
+a -> 17b -> 18
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+
+SYMBOLS TABLE:
+a -> 17b -> 18
+OUTPUT:
+18
+
+FILE TABLE:
+
+HEAP:
+
+

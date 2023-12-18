@@ -39,7 +39,12 @@ public class WriteHeap implements StatementInterface {
             else throw new MyException("Variable " + variableName + " is not a refType!");
         }
         else throw new MyException("Variable " + variableName + " was not declared!");
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new WriteHeap(variableName, expression.deepCopy());
     }
 
     @Override

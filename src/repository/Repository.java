@@ -1,11 +1,7 @@
 package repository;
-
 import model.ProgramState;
 import model.exceptions.MyException;
-import model.program.executableStack.MyIStack;
 import model.program.output.MyIList;
-import model.program.symbolTable.MyIDictionary;
-import model.statements.StatementInterface;
 import model.values.ValueInterface;
 
 import java.io.BufferedWriter;
@@ -13,67 +9,57 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 public class Repository implements IRepository{
     private List<ProgramState> states;
     private String logFilePath;
-    public Repository(String logFilePath) {
-
+    public Repository(ProgramState prg, String logFilePath) {
         this.states = new ArrayList<ProgramState>();
+        states.add(prg);
         this.logFilePath = logFilePath;
-
     }
     @Override
     public void addProgram(ProgramState pg){
         states.add(pg);
     }
-
     @Override
-    public ProgramState getCrtPrg() {
-
-        return states.get(0);
+    public List<ProgramState> getProgramList() {
+        return states;
     }
-
     @Override
     public void logProgramStateExecution(ProgramState state) throws MyException, IOException{
-        PrintWriter logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
-        logFile.write(state.toString());
-        logFile.write("\n");
+        PrintWriter logFile;
+        try {
+            logFile = new PrintWriter(new BufferedWriter(new FileWriter(logFilePath, true)));
+        } catch (IOException e) {
+            throw new MyException(e.getMessage());
+        }
+        logFile.println("ID:"+state.getId() + "\n");
+        logFile.println("ExeStack:");
+        ProgramState crt = states.get(0);
+        Iterator it = crt.getExeStack().getAll().iterator();
+        while(it.hasNext())
+            logFile.println(it.next());
+        logFile.println("SymTable:");
+        for(Map.Entry<String, ValueInterface> e: crt.getSymTable().getDictionary().entrySet())
+            logFile.println(e);
+        logFile.println("Out:");
+        for(ValueInterface e: crt.getOut().getAll())
+            logFile.println(e);
+        logFile.println("FileTable:");
+        logFile.println(crt.getFileTable().toString());
+        logFile.println("-------------------------");
         logFile.close();
     }
-
     @Override
     public ProgramState getPrgAtIndex(int index) throws MyException {
         return states.get(index);
     }
-
-    ;
-    /*private String printStack(MyIStack<StatementInterface> stack) {
-        StringBuilder stackString = new StringBuilder();
-        // Use left-root-right binary tree traversal
-        // Assuming you have a method getInOrderTraversal in your stack implementation
-        for (StatementInterface stmt : stack.getInOrderTraversal()) {
-            stackString.append(stmt.toString()).append("\n");
-        }
-        return stackString.toString();
+    @Override
+    public void setProgramsList(List<ProgramState> prg) {
+        states=prg;
     }
-    private String printSymTable(MyIDictionary<String, ValueInterface> symTable) {
-        StringBuilder symTableString = new StringBuilder();
-        for (Map.Entry<String, ValueInterface> entry : symTable.getAll()) {
-            symTableString.append(entry.getKey()).append(" --> ").append(entry.getValue().toString()).append("\n");
-        }
-        return symTableString.toString();
-    }
-    private String printList(MyIList<ValueInterface> list) {
-        StringBuilder listString = new StringBuilder();
-        for (ValueInterface value : list.getAll()) {
-            listString.append(value.toString()).append("\n");
-        }
-        return listString.toString();
-    }
-
-    */
-
 }

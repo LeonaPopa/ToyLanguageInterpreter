@@ -7,8 +7,7 @@ public interface MyIStack<T> {
     T pop();
     void push(T v);
     Stack<T> getAll();
-    int size();
     boolean isEmpty();
     String display();
-    List<T> getInOrderTraversal();
+    String toString();
 }

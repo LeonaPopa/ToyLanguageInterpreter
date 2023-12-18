@@ -39,6 +39,11 @@ public class IfStatement implements StatementInterface {
             else
                 stk.push(elseS);
         }
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new IfStatement(exp.deepCopy(), thenS.deepCopy(), elseS.deepCopy());
     }
 }

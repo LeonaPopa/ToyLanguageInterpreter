@@ -8,23 +8,23 @@ import model.values.ValueInterface;
 
 public class PrintStatement implements StatementInterface {
     ExpressionInterface exp;
-
     public PrintStatement(ExpressionInterface exp) {
         this.exp = exp;
     }
-
     public ExpressionInterface getExp() {
         return exp;
     }
-
     public String toString(){
         return "print(" + exp.toString() + ")";
     }
-
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
         ValueInterface val = exp.eval(state.getSymTable(), state.getHeap());
         state.getOut().add(val);
-        return state;
+        return null;
+    }
+    @Override
+    public StatementInterface deepCopy() {
+        return new PrintStatement(exp.deepCopy());
     }
 }

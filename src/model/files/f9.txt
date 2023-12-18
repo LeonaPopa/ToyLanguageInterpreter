@@ -1,0 +1,216 @@
+EXECUTION STACK:
+(Ref(int) v; (new(v, 20); (Ref(Ref(int)) a; (new(a, v); (new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a)))))))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+Ref(int) v;
+(new(v, 20); (Ref(Ref(int)) a; (new(a, v); (new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a))))))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(new(v, 20); (Ref(Ref(int)) a; (new(a, v); (new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a))))))))
+
+SYMBOLS TABLE:
+v -> (0,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+new(v, 20);
+(Ref(Ref(int)) a; (new(a, v); (new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a)))))))
+
+SYMBOLS TABLE:
+v -> (0,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(Ref(Ref(int)) a; (new(a, v); (new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a)))))))
+
+SYMBOLS TABLE:
+v -> (1,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+
+
+EXECUTION STACK:
+Ref(Ref(int)) a;
+(new(a, v); (new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a))))))
+
+SYMBOLS TABLE:
+v -> (1,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+
+
+EXECUTION STACK:
+(new(a, v); (new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a))))))
+
+SYMBOLS TABLE:
+a -> (0,Ref(int))
+v -> (1,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+
+
+EXECUTION STACK:
+new(a, v);
+(new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a)))))
+
+SYMBOLS TABLE:
+a -> (0,Ref(int))
+v -> (1,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+
+
+EXECUTION STACK:
+(new(v, 30); (print(ReadHeap(v)) print(ReadHeap(ReadHeap(a)))))
+
+SYMBOLS TABLE:
+a -> (2,Ref(int))
+v -> (1,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+2 -> (1,int)
+
+
+EXECUTION STACK:
+new(v, 30);
+(print(ReadHeap(v)) print(ReadHeap(ReadHeap(a))))
+
+SYMBOLS TABLE:
+a -> (2,Ref(int))
+v -> (1,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+2 -> (1,int)
+
+
+EXECUTION STACK:
+(print(ReadHeap(v)) print(ReadHeap(ReadHeap(a))))
+
+SYMBOLS TABLE:
+a -> (2,Ref(int))
+v -> (3,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+
+EXECUTION STACK:
+print(ReadHeap(v))
+print(ReadHeap(ReadHeap(a)))
+
+SYMBOLS TABLE:
+a -> (2,Ref(int))
+v -> (3,int)
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+
+EXECUTION STACK:
+print(ReadHeap(ReadHeap(a)))
+
+SYMBOLS TABLE:
+a -> (2,Ref(int))
+v -> (3,int)
+
+OUTPUT:
+30
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+
+EXECUTION STACK:
+
+SYMBOLS TABLE:
+a -> (2,Ref(int))
+v -> (3,int)
+
+OUTPUT:
+30
+20
+
+FILE TABLE:
+
+HEAP:
+1 -> 20
+2 -> (1,int)
+3 -> 30
+
+

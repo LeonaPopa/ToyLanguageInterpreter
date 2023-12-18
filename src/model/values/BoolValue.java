@@ -25,6 +25,11 @@ public class BoolValue implements ValueInterface{
     }
 
     @Override
+    public ValueInterface deepCopy() {
+        return new BoolValue(val);
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof BoolValue)
             return true;

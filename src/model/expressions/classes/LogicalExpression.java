@@ -1,6 +1,4 @@
 package model.expressions.classes;
-
-import com.sun.jdi.Value;
 import model.exceptions.MyException;
 import model.expressions.ExpressionInterface;
 import model.program.heap.MyIDictionary2;
@@ -39,5 +37,10 @@ public class LogicalExpression implements ExpressionInterface {
             } else throw new MyException("Operand 2 is not boolean");
         } else throw new MyException("Operand 1 is not boolean");
         throw new MyException("Invalid expression");
+    }
+
+    @Override
+    public ExpressionInterface deepCopy() {
+        return new LogicalExpression(op, e1.deepCopy(), e2.deepCopy());
     }
 }

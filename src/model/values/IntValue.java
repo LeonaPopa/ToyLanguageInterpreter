@@ -18,6 +18,11 @@ public class IntValue implements ValueInterface{
     }
 
     @Override
+    public ValueInterface deepCopy() {
+        return new IntValue(val);
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof IntValue)
             return true;

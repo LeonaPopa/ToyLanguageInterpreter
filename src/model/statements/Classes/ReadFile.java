@@ -53,7 +53,12 @@ public class ReadFile implements StatementInterface {
             else throw new MyException("File does not exist!");
         }
         else throw new MyException("Expresion must be a stringValue");
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new ReadFile(expression.deepCopy(), variableName);
     }
 
     @Override

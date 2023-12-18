@@ -20,5 +20,10 @@ public class IntType implements TypeInterface{
     public ValueInterface defaultValue() {
         return new IntValue(0);
     }
+
+    @Override
+    public TypeInterface deepCopy() {
+        return new IntType();
+    }
 }
 

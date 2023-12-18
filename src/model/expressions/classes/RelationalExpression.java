@@ -55,4 +55,14 @@ public class RelationalExpression implements ExpressionInterface {
             throw new MyException("first operand isn't an integer");
         }
     }
+
+    @Override
+    public ExpressionInterface deepCopy() {
+        return new RelationalExpression(e1.deepCopy(), e2.deepCopy(), op);
+    }
+
+    public String toString() {
+        return String.valueOf(e1) + String.valueOf(op) + String.valueOf(e2);
+    }
+
 }

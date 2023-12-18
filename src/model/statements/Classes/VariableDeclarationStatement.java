@@ -35,6 +35,11 @@ public class VariableDeclarationStatement implements StatementInterface {
         } else {
             symTable.add(name, typ.defaultValue());
         }
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new VariableDeclarationStatement(name, typ.deepCopy());
     }
 }

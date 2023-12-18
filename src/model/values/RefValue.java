@@ -16,6 +16,12 @@ public class RefValue implements ValueInterface{
     @Override
     public TypeInterface getType(){return new RefType(locationType);
     }
+
+    @Override
+    public ValueInterface deepCopy() {
+        return new RefValue(address, locationType);
+    }
+
     public String toString(){ return "("+ address + "," + locationType + ")";}
 
 }

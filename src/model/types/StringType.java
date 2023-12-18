@@ -10,6 +10,11 @@ public class StringType implements TypeInterface{
     }
 
     @Override
+    public TypeInterface deepCopy() {
+        return new StringType();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof StringType)
             return true;

@@ -41,9 +41,12 @@ public class CloseRFile implements StatementInterface {
         }
         else throw new MyException("Expression must be a string!");
 
-        return state;
+        return null;
     }
-
+    @Override
+    public StatementInterface deepCopy() {
+        return new CloseRFile(expression.deepCopy());
+    }
     @Override
     public String toString() {
         return "closeRFile(" + expression.toString() + ")";

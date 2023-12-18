@@ -21,4 +21,9 @@ public class BoolType implements TypeInterface{
     public ValueInterface defaultValue() {
         return new BoolValue(false);
     }
+
+    @Override
+    public TypeInterface deepCopy() {
+        return new BoolType();
+    }
 }

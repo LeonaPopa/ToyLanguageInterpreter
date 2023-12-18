@@ -31,10 +31,15 @@ public class WhileStatement implements StatementInterface {
             else {
                 exeStack.push(this);
                 exeStack.push(stmt);
-                return state;
+                return null;
             }
         }
         else throw new MyException("Expression " + expr + " must be a boolValue!");
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new WhileStatement(expr.deepCopy(), stmt.deepCopy());
     }
 
     @Override

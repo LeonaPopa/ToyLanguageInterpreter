@@ -1,0 +1,137 @@
+EXECUTION STACK:
+(bool a; (int v; (a=true ((IF(a)THEN(v=2)ELSE(v=3)) print(v)))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+bool a;
+(int v; (a=true ((IF(a)THEN(v=2)ELSE(v=3)) print(v))))
+
+SYMBOLS TABLE:
+
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(int v; (a=true ((IF(a)THEN(v=2)ELSE(v=3)) print(v))))
+
+SYMBOLS TABLE:
+a -> false
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+int v;
+(a=true ((IF(a)THEN(v=2)ELSE(v=3)) print(v)))
+
+SYMBOLS TABLE:
+a -> false
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(a=true ((IF(a)THEN(v=2)ELSE(v=3)) print(v)))
+
+SYMBOLS TABLE:
+a -> falsev -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+a=true
+((IF(a)THEN(v=2)ELSE(v=3)) print(v))
+
+SYMBOLS TABLE:
+a -> falsev -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+((IF(a)THEN(v=2)ELSE(v=3)) print(v))
+
+SYMBOLS TABLE:
+a -> truev -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+(IF(a)THEN(v=2)ELSE(v=3))
+print(v)
+
+SYMBOLS TABLE:
+a -> truev -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+v=2
+print(v)
+
+SYMBOLS TABLE:
+a -> truev -> 0
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+print(v)
+
+SYMBOLS TABLE:
+a -> truev -> 2
+OUTPUT:
+
+FILE TABLE:
+
+HEAP:
+
+
+EXECUTION STACK:
+
+SYMBOLS TABLE:
+a -> truev -> 2
+OUTPUT:
+2
+
+FILE TABLE:
+
+HEAP:
+
+

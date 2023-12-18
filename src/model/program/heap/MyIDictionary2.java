@@ -14,6 +14,8 @@ public interface MyIDictionary2<V> {
     boolean isDefined(Integer key);
     void update(Integer key, V newValue);
     List<Map.Entry<Integer, V>> getAll();
+    void setHeap(Map<Integer, V> heap);
+    Map<Integer, V> getHeap();
     V remove(Integer key) throws MyException;
     Collection<V> values();
     int getNextFree();

@@ -47,7 +47,12 @@ public class openRFile implements StatementInterface {
             throw new MyException("Error opening file '" + filename + "'.");
         }
 
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new openRFile(expression.deepCopy());
     }
 
     @Override

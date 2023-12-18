@@ -14,7 +14,7 @@ public class MyDictionary<K, V> implements MyIDictionary<K,V> {
     public String toString() {
         StringBuilder dictString = new StringBuilder();
         for(K elem: dictionary.keySet()){
-            dictString.append(elem.toString()).append(" -> ").append(dictionary.get(elem).toString());
+            dictString.append(elem.toString()).append(" -> ").append(dictionary.get(elem).toString()).append("\n");
         }
         return dictString.toString();
     }
@@ -58,4 +58,25 @@ public class MyDictionary<K, V> implements MyIDictionary<K,V> {
         }
     }
     public Collection<V> values() { return dictionary.values(); }
+
+    @Override
+    public MyDictionary<K, V> clone() {
+        Map<K, V> newDict = new HashMap<>();
+        Set<K> keyss = dictionary.keySet();
+        for(K key: keyss){
+            newDict.put(key, dictionary.get(key));
+        }
+        MyDictionary<K, V>  neww = new MyDictionary<K, V>();
+        neww.setDictionary(newDict);
+        return neww;
+    }
+
+    @Override
+    public Map<K, V> getDictionary() {
+        return dictionary;
+    }
+
+    public void setDictionary(Map<K, V> dictionary) {
+        this.dictionary = dictionary;
+    }
 }

@@ -23,6 +23,11 @@ public class ComposedStatement implements StatementInterface {
         MyIStack<StatementInterface> stk = state.getExeStack();
         stk.push(second);
         stk.push(first);
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new ComposedStatement(first.deepCopy(), second.deepCopy());
     }
 }

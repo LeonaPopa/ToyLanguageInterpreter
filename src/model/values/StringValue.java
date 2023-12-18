@@ -27,6 +27,11 @@ public class StringValue implements ValueInterface{
     }
 
     @Override
+    public ValueInterface deepCopy() {
+        return new StringValue(val);
+    }
+
+    @Override
     public boolean equals(Object obj) {
         if (obj instanceof StringValue)
             return true;

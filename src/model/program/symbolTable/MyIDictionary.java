@@ -17,4 +17,6 @@ public interface MyIDictionary<K, V> {
     List<Map.Entry<K, V>> getAll();
     V remove(Object key) throws MyException;
     Collection<V> values();
+    MyDictionary<K, V> clone();
+    Map<K, V> getDictionary();
 }

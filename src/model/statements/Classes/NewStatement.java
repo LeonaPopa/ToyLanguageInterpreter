@@ -31,9 +31,9 @@ public class NewStatement implements StatementInterface {
                 ValueInterface expVal = expr.eval(symTable, heapTable);
                 RefType referenceType = (RefType) reference.getType();
                 TypeInterface locationType = referenceType.getInner();
+                int key = heapTable.getNextFree();
                 if (expVal.getType().equals(locationType)){
                     heapTable.add(expVal);
-                    int key = heapTable.getNextFree();
                     symTable.add(var_name, new RefValue(key, locationType));
                 }
                 else throw new MyException("Types of " + expr + " and " + var_name + " do not match!");
@@ -43,6 +43,11 @@ public class NewStatement implements StatementInterface {
         }
         else
             throw new MyException("The variable " + var_name + " was not declared!");
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new NewStatement(var_name, expr.deepCopy());
     }
 }

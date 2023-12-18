@@ -14,7 +14,7 @@ public class runCommand extends Command {
 
     public void execute() {
         try {
-            controller.allStep(program);
+            controller.allStep();
         }
         catch (Exception ex){
             System.out.println(ex.getMessage());

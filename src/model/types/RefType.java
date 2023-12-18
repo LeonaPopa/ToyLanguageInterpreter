@@ -9,6 +9,11 @@ public class RefType implements TypeInterface{
         return new RefValue(0,inner);
     }
 
+    @Override
+    public TypeInterface deepCopy() {
+        return new RefType(inner.deepCopy());
+    }
+
     TypeInterface inner;
 
     public RefType(TypeInterface inner){ this.inner = inner;}

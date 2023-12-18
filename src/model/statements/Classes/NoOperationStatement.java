@@ -7,7 +7,12 @@ import model.statements.StatementInterface;
 public class NoOperationStatement implements StatementInterface {
     @Override
     public ProgramState execute(ProgramState state) throws MyException {
-        return state;
+        return null;
+    }
+
+    @Override
+    public StatementInterface deepCopy() {
+        return new NoOperationStatement();
     }
 
     @Override

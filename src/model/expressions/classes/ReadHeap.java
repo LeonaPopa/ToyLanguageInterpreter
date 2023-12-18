@@ -28,6 +28,11 @@ public class ReadHeap implements ExpressionInterface {
     }
 
     @Override
-    public String toString() { return "ReadHeap(" + expression + ");"; }
+    public ExpressionInterface deepCopy() {
+        return new ReadHeap(expression.deepCopy());
+    }
+
+    @Override
+    public String toString() { return "ReadHeap(" + expression + ")"; }
 }
 
